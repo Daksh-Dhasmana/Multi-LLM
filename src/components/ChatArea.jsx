@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import pushPrompt from '../Backend-Comms/Back';
+
 const ChatArea = () => {
+  const [prompt, setPrompt] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault(); pushPrompt({ text: prompt }); setPrompt("")
+  }
   return (
     <div>
-      <form action="" method="post">
-        <textarea name="chatArea" id="" placeholder='Enter your prompt'></textarea>
+      <form onSubmit={handleSubmit}>
+        <textarea placeholder='Enter your prompt' value={prompt} onChange={(e) => { setPrompt(e.target.value) }}></textarea>
+        <button type='submit'>Send</button>
       </form>
     </div>
   )
 }
 
-export default ChatArea
+export default ChatArea;
