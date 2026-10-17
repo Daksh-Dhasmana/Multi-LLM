@@ -1,19 +1,21 @@
 import axios from 'axios';
-import { useState } from 'react';
 
-const baseUrl='http://localhost:3001/prompts';
+async function pushPrompt(prompt) {
+  const { data } = await axios.post(
+    'https://openrouter.ai/api/v1/chat/completions',
+    {
+      model: 'xingchen-agi/xing4.0-29b-a4b:free',
+      messages: [{ role: 'user', content: prompt }],
+    },
+    {
+      headers: {
+        Authorization: 'Bearer VITE_OPENROUTER_API_KEY',
+        'Content-Type': 'application/json',
+      },
+    },
+  );
 
-
-const pushPrompt=(promptData)=>{
-    axios.post(baseUrl,promptData)
-        .then(response=>{
-            console.log("Success: ",response.data);
-            
-            return "Success"
-        })
-        .catch(error=>{
-            return "Error Occurred"
-        })
+  return data.choices[0].message.content;
 }
 
 export default pushPrompt

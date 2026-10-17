@@ -4,7 +4,11 @@ import pushPrompt from '../Backend-Comms/Back';
 const ChatArea = () => {
   const [prompt, setPrompt] = useState("");
   const handleSubmit = (e) => {
-    e.preventDefault(); pushPrompt({ text: prompt }); setPrompt("")
+    e.preventDefault(); 
+    setPrompt("")
+  }
+  const promptData=()=>{
+    return prompt;
   }
   return (
     <div>
@@ -16,4 +20,4 @@ const ChatArea = () => {
   )
 }
 
-export default ChatArea;
+export default {ChatArea, promptData};
