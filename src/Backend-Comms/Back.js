@@ -4,7 +4,7 @@ async function pushPrompt(prompt) {
   const { data } = await axios.post(
     'https://openrouter.ai/api/v1/chat/completions',
     {
-      model: 'xingchen-agi/xing4.0-29b-a4b:free',
+      model: 'openai/gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],
     },
     {
