@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import pushPrompt from '../Backend-Comms/Back';
 
-const ChatArea = () => {
+const ChatArea = ({onSendMsg}) => {
   const [prompt, setPrompt] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault(); 
+    onSendMsg(prompt);
     setPrompt("")
-  }
-  const promptData=()=>{
-    return prompt;
   }
   return (
     <div>
@@ -20,4 +18,4 @@ const ChatArea = () => {
   )
 }
 
-export default {ChatArea, promptData};
+export default ChatArea;

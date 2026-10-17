@@ -9,7 +9,7 @@ async function pushPrompt(prompt) {
     },
     {
       headers: {
-        Authorization: 'Bearer VITE_OPENROUTER_API_KEY',
+        Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
       },
     },

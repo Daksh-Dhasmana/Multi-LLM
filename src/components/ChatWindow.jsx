@@ -1,11 +1,8 @@
 import React from 'react'
-import ChatArea from './ChatArea'
-import pushPrompt from '../Backend-Comms/Back'
-
 const ChatWindow = (props) => {
   return (
     <div>
-      <p>{props.result}</p>
+      <p className='text-amber-950'>{props.result}</p>
     </div>
   )
 }
