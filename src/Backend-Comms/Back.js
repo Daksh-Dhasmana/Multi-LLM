@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-async function pushPrompt(prompt) {
+async function pushPrompt(prompt,models) {
   const { data } = await axios.post(
     'https://openrouter.ai/api/v1/chat/completions',
     {
-      model: 'openai/gpt-3.5-turbo',
+      model: models,
       messages: [{ role: 'user', content: prompt }],
     },
     {
