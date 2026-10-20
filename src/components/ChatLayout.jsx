@@ -8,7 +8,7 @@ const ChatLayout = () => {
   const handleSendMsg=async(promptText,model)=>{
     try {
       const aiReply=await pushPrompt(promptText,model);
-    setResult(aiReply)
+    setResult(""+aiReply)
     } catch (error) {
       console.error("API Error:", error);
       setResult("ERROR")
