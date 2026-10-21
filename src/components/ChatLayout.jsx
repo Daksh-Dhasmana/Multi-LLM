@@ -1,22 +1,23 @@
-import React from 'react'
 import ChatWindow from './ChatWindow'
 import ChatArea from './ChatArea'
 import pushPrompt from '../Backend-Comms/Back'
 import { useState } from 'react'
 const ChatLayout = () => {
-  const [result, setResult] = useState("Type to see reply");
+  const [result, setResult] = useState("");
+  const [history,setHistory] =useState([]);
   const handleSendMsg=async(promptText,model)=>{
     try {
       const aiReply=await pushPrompt(promptText,model);
-    setResult(""+aiReply)
+      setHistory([...history,promptText,aiReply]);
+    setResult(aiReply)
     } catch (error) {
       console.error("API Error:", error);
-      setResult("ERROR")
+      setHistory([...history,promptText,"Error Try again"]);
     }
   }
   return (
     <div>
-      <ChatWindow result={result} />
+      <ChatWindow history={history} />
       <ChatArea onSendMsg={handleSendMsg}/>
     </div>
   )

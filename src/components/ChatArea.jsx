@@ -7,7 +7,7 @@ const ChatArea = ({onSendMsg}) => {
   const handleSubmit = (e) => {
     e.preventDefault(); 
     onSendMsg(prompt,model);
-    setPrompt("")
+    setPrompt(prompt)
   }
   return (
     <div>
