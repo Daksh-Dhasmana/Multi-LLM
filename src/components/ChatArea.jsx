@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import pushPrompt from '../Backend-Comms/Back';
 
 const ChatArea = ({onSendMsg}) => {
   const [model, setModel]= useState("openai/gpt-3.5-turbo");
@@ -7,7 +6,7 @@ const ChatArea = ({onSendMsg}) => {
   const handleSubmit = (e) => {
     e.preventDefault(); 
     onSendMsg(prompt,model);
-    setPrompt(prompt)
+    setPrompt("")
   }
   return (
     <div>
