@@ -2,6 +2,7 @@ import ChatWindow from './ChatWindow'
 import ChatArea from './ChatArea'
 import pushPrompt from '../Backend-Comms/Back'
 import { useState } from 'react'
+import ChatHistory from './ChatHistory'
 const ChatLayout = () => {
   const [result, setResult] = useState("");
   const [history,setHistory] =useState([]);

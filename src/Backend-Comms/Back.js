@@ -6,6 +6,9 @@ async function pushPrompt(prompt,models) {
     {
       model: models,
       messages: [{ role: 'user', content: prompt }],
+      "provider":{
+      "allow_fallbacks": true
+      }
     },
     {
       headers: {
