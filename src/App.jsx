@@ -2,7 +2,7 @@ import ChatLayout from './components/ChatLayout'
 
 const App = () => {
   return (
-    <div className="h-screen bg-slate-950 flex justify-center p-4 text-slate-100">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col items-center justify-center p-0 sm:p-4">
       <ChatLayout />
     </div>
   )
